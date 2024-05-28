@@ -2,6 +2,10 @@
 
 This guide provides step-by-step instructions to implement a Kafka cluster using KRaft (Kafka Raft Metadata mode). KRaft mode enables Kafka to manage metadata without relying on an external ZooKeeper ensemble.
 
+## What is RAFT ?
+The Raft protocol is a consensus algorithm designed to manage a replicated log in distributed systems.
+
+
 ## Prerequisites
 
 - **Java Development Kit (JDK)**: Below mentioned Kafka release requires Java 17
