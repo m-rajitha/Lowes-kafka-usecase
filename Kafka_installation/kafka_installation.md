@@ -7,7 +7,7 @@ The Raft protocol is a consensus algorithm designed to manage a replicated log i
 
 ## Why Kafka uses RAFT with KRAFT ?
 - Moving to KRAFT simplies Kafka architecture by removing zookeeper out of system
-- Time to recover is faster with KRAFT compared to Zookeeper
+- Time to recover metadata during start is faster with KRAFT compared to Zookeeper
 - Scaling of partitions - Zookeeper is bottleneck in scaling partitons in metadata maintanence , where as KRAFT is desinged to handle large number of partitions
 
 
