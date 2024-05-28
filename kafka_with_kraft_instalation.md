@@ -116,7 +116,41 @@ Create a systemctl service file for each server in `/etc/systemd/system`:
   WantedBy=multi-user.target
   ```
 - `server2.service`
+  ```bash
+  [Unit]
+  Description=Apache Kafka server (broker)
+  Documentation=http://kafka.apache.org/documentation.html
+  Requires=network.target remote-fs.target
+  After=network.target remote-fs.target
+
+  [Service]
+  Type=simple
+  User=root
+  Environment=JAVA_HOME=/home/raji/kafka/jdk-17.0.11
+  ExecStart=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-start.sh /home/raji/kafka/kafka_2.13-3.7.0/config/kraft/server2.properties
+  ExecStop=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-stop.sh
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
 - `server3.service`
+  ```bash
+  [Unit]
+  Description=Apache Kafka server (broker)
+  Documentation=http://kafka.apache.org/documentation.html
+  Requires=network.target remote-fs.target
+  After=network.target remote-fs.target
+
+  [Service]
+  Type=simple
+  User=root
+  Environment=JAVA_HOME=/home/raji/kafka/jdk-17.0.11
+  ExecStart=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-start.sh /home/raji/kafka/kafka_2.13-3.7.0/config/kraft/server3.properties
+  ExecStop=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-stop.sh
+
+  [Install]
+  WantedBy=multi-user.target
+  ```
 
 ### 10. Reload Daemon, Enable, and Start Services
 
@@ -132,10 +166,3 @@ systemctl status server1.service  # Repeat for server2.service and server3.servi
 ### 11. Verify the Setup
 
 To verify the setup, check the Kafka logs and ensure that the servers have started successfully in KRaft mode.
-
----
-
-Feel free to adapt this documentation according to your specific environment and needs. Make sure to test each step in your setup to ensure accuracy. Once done, you can publish this documentation on GitHub for reference.
-```
-
-You can save the above content as a `.md` file and upload it to your GitHub repository. If you need further modifications or additional sections, let me know!  
