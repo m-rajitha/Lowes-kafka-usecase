@@ -4,8 +4,8 @@ This guide provides step-by-step instructions to implement a Kafka cluster using
 
 ## Prerequisites
 
-- **Java Development Kit (JDK)**: Kafka requires Java 8+
-- **Apache Kafka**: Download the latest Kafka release from [Apache Kafka](https://downloads.apache.org/kafka/).
+- **Java Development Kit (JDK)**: Kafka requires Java 17
+- **Apache Kafka**: Download the latest Kafka release (Currently 3.7.0) from Apache Kafka.
 
 ## Steps to Implement Kafka with KRaft Mode
 
@@ -50,7 +50,7 @@ bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properti
 Open the `server.properties` file for editing:
 
 ```bash
-nano config/kraft/server.properties
+vi config/kraft/server.properties
 ```
 
 Update the following properties:
