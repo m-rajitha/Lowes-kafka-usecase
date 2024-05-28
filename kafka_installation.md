@@ -1,67 +1,83 @@
-Implement a Kafka cluster with KRaft:
+Here is the documentation formatted for a Markdown (.md) file:
 
-To implement a Kafka cluster with KRaft (Kafka Raft Metadata mode), follow these step-by-step instructions. KRaft mode enables Kafka to manage metadata without relying on an external ZooKeeper ensemble.
+```markdown
+# Implementing a Kafka Cluster with KRaft Mode
 
-Prerequisites:
+This guide provides step-by-step instructions to implement a Kafka cluster using KRaft (Kafka Raft Metadata mode). KRaft mode enables Kafka to manage metadata without relying on an external ZooKeeper ensemble.
 
-Java Development Kit (JDK): Kafka requires Java 17
-Apache Kafka: Download the Kafka release 3.0.0 from Apache kafka
+## Prerequisites
 
+- **Java Development Kit (JDK)**: Kafka requires Java 8+
+- **Apache Kafka**: Download the latest Kafka release from [Apache Kafka](https://downloads.apache.org/kafka/).
 
-Steps:
+## Steps to Implement Kafka with KRaft Mode
 
-1.Download Kafka
+### 1. Download Kafka
 
-wget https://downloads.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz
+Download the latest Kafka release using the following command:
 
-Extract Kafka:
+```bash
+wget  https://downloads.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz
+```
 
-tar -xvzf kafka_2.13-3.7.0.tgz
-cd kafka_2.13-3.7.0
+### 2. Extract Kafka
 
-2. Configure Kafka for KRaft Mode
+Extract the downloaded tar file:
 
-Create a Cluster ID:
+```bash
+tar -xzf kafka_2.13-3.7.0.tgz
+cd  kafka_2.13-3.7.0
+```
 
+### 3. Configure Kafka for KRaft Mode
+
+#### Create a Cluster ID
+
+Generate a unique Cluster ID:
+
+```bash
 KAFKA_CLUSTER_ID="$(bin/kafka-storage.sh random-uuid)"
 echo $KAFKA_CLUSTER_ID
+```
 
-Format the Log Directories:
+#### Format the Log Directories
 
+Format the storage directories using the generated Cluster ID:
+
+```bash
 bin/kafka-storage.sh format -t $KAFKA_CLUSTER_ID -c config/kraft/server.properties
+```
 
-3. Edit the server.properties file to configure the KRaft mode:
+### 4. Edit the `server.properties` File to Configure KRaft Mode
 
-Open config/kraft/server.properties:
+Open the `server.properties` file for editing:
 
-vi config/kraft/server.properties
+```bash
+nano config/kraft/server.properties
+```
 
 Update the following properties:
 
+```properties
 process.roles=broker,controller
 node.id=1
 controller.quorum.voters=1@localhost:9093
 listeners=PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
 log.dirs=/tmp/kraft-combined-logs
+```
 
+#### Explanation of Properties
 
-Process.roles:
+- **process.roles**: Defines the roles of the server. It can be set to `broker`, `controller`, or both (`broker,controller`).
+  - `broker`: The server acts as a broker.
+  - `controller`: The server acts as a controller.
+  - `broker,controller`: The server acts as both a broker and a controller.
+  - If `process.roles` is not set, the server operates in ZooKeeper mode.
 
-In KRaft mode each Kafka server can be configured as a controller, a broker, or both using the process.roles property. This property can have the following values:
+- **controller.quorum.voters**: Identifies the quorum controller servers. All controllers must be listed, each with their id, host, and port information.
+  - Example: `controller.quorum.voters=id1@host1:port1,id2@host2:port2,id3@host3:port3`
+  - The node ID in `controller.quorum.voters` must match the corresponding id on the controller servers.
 
-If process.roles is set to broker, the server acts as a broker.
-If process.roles is set to controller, the server acts as a controller.
-If process.roles is set to broker,controller, the server acts as both a broker and a controller.
-If process.roles is not set at all, it is assumed to be in ZooKeeper mode.
+- **listeners**: Specifies the protocols and ports that the server will use to communicate.
 
-controller.quorum.voters:
-
-All of the servers in a Kafka cluster discover the quorum voters using the controller.quorum.voters property. This identifies the quorum controller servers that should be used. All the controllers must be enumerated. Each controller is identified with their id, host and port information. For example:
-
-controller.quorum.voters=id1@host1:port1,id2@host2:port2,id3@host3:port3
-
-Every broker and controller must set the controller.quorum.voters property
-
-The node ID supplied in the controller.quorum.voters property must match the corresponding id on the controller servers.
-
-
+- **log.dirs**: Defines the directories where Kafka stores its log files.
