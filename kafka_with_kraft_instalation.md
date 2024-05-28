@@ -67,7 +67,7 @@ listeners=PLAINTEXT://localhost:9092,CONTROLLER://localhost:9093
 log.dirs=/data1
 ```
 
-**Note:** `node.id`, `listeners`, and `log.dirs` should be unique for each broker.
+**Note:** `node.id`, `listeners`, and `log.dirs` should be unique for each broker. For production cluster `controller roles` should be assigned separately .
 
 ### 7. Generate UUID for Kafka Cluster ID
 
