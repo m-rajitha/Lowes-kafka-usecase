@@ -1,4 +1,3 @@
-```markdown
 # Implementing a Kafka Cluster with KRaft Mode
 
 This guide provides step-by-step instructions to implement a Kafka cluster using KRaft (Kafka Raft Metadata mode). KRaft mode enables Kafka to manage metadata without relying on an external ZooKeeper ensemble.
