@@ -69,6 +69,24 @@ log.dirs=/data1
 
 **Note:** `node.id`, `listeners`, and `log.dirs` should be unique for each broker. For production cluster `controller roles` should be assigned separately .
 
+#### Explanation of Properties
+
+- **process.roles**: Defines the roles of the server. It can be set to `broker`, `controller`, or both (`broker,controller`).
+  - `broker`: The server acts as a broker.
+  - `controller`: The server acts as a controller.
+  - `broker,controller`: The server acts as both a broker and a controller.
+  - If `process.roles` is not set, the server operates in ZooKeeper mode.
+
+- **controller.quorum.voters**: Identifies the quorum controller servers. All controllers must be listed, each with their id, host, and port information.
+  - Example: `controller.quorum.voters=id1@host1:port1,id2@host2:port2,id3@host3:port3`
+  - The node ID in `controller.quorum.voters` must match the corresponding id on the controller servers.
+
+- **listeners**: Specifies the protocols and ports that the server will use to communicate.
+
+- **log.dirs**: Defines the directories where Kafka stores its log files.
+
+- **node.id**: The node ID associated with the roles this process is playing when `process.roles` is non-empty. This is required configuration when running in KRaft mode.
+
 ### 7. Generate UUID for Kafka Cluster ID
 
 Generate a unique Cluster ID:
