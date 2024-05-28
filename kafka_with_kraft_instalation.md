@@ -5,6 +5,11 @@ This guide provides step-by-step instructions to implement a Kafka cluster using
 ## What is RAFT ?
 The Raft protocol is a consensus algorithm designed to manage a replicated log in distributed systems.Raft uses a leader-based approach where a single leader is responsible for managing the replication and ensuring that all followers have the same log entries, providing a clear structure for maintaining consistency.
 
+## Why Kafka uses RAFT with KRAFT ?
+- Moving to KRAFT simplies Kafka architecture by removing zookeeper out of system
+- Time to recover is faster with KRAFT compared to Zookeeper
+- Scaling of partitions - Zookeeper is bottleneck in scaling partitons in metadata maintanence , where as KRAFT is desinged to handle large number of partitions
+
 
 ## Prerequisites
 
