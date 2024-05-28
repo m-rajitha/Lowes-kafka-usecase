@@ -1,5 +1,3 @@
-Here is the documentation formatted for a Markdown (.md) file:
-
 ```markdown
 # Implementing a Kafka Cluster with KRaft Mode
 
