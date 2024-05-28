@@ -99,22 +99,22 @@ Create a systemctl service file for each server in `/etc/systemd/system`:
 
 - `server1.service`
   ```bash
-[Unit]
-Description=Apache Kafka server (broker)
-Documentation=http://kafka.apache.org/documentation.html
-Requires=network.target remote-fs.target
-After=network.target remote-fs.target
+  [Unit]
+  Description=Apache Kafka server (broker)
+  Documentation=http://kafka.apache.org/documentation.html
+  Requires=network.target remote-fs.target
+  After=network.target remote-fs.target
 
-[Service]
-Type=simple
-User=root
-Environment=JAVA_HOME=/home/raji/kafka/jdk-17.0.11
-ExecStart=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-start.sh /home/raji/kafka/kafka_2.13-3.7.0/config/kraft/server1.properties
-ExecStop=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-stop.sh
+  [Service]
+  Type=simple
+  User=root
+  Environment=JAVA_HOME=/home/raji/kafka/jdk-17.0.11
+  ExecStart=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-start.sh /home/raji/kafka/kafka_2.13-3.7.0/config/kraft/server1.properties
+  ExecStop=/home/raji/kafka/kafka_2.13-3.7.0/bin/kafka-server-stop.sh
 
-[Install]
-WantedBy=multi-user.target
-```
+  [Install]
+  WantedBy=multi-user.target
+  ```
 - `server2.service`
 - `server3.service`
 
