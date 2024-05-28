@@ -169,8 +169,6 @@ Create a systemctl service file for each server in `/etc/systemd/system`:
   [Install]
   WantedBy=multi-user.target
   ```
-![server1-service-running](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/d2c2598f-1166-4ce0-b69c-8c6cbdd648a5)
-![systemctl-services-running](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/9b1ed154-f236-4bf7-b2a0-28fec3d33ce2)
 
 
 ### 10. Reload Daemon, Enable, and Start Services
@@ -183,6 +181,9 @@ systemctl enable server1.service  # Repeat for server2.service and server3.servi
 systemctl start server1.service   # Repeat for server2.service and server3.service
 systemctl status server1.service  # Repeat for server2.service and server3.service
 ```
+
+![server1-service-running](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/d2c2598f-1166-4ce0-b69c-8c6cbdd648a5)
+![systemctl-services-running](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/9b1ed154-f236-4bf7-b2a0-28fec3d33ce2)
 
 ### 11. Verify the Setup
 
