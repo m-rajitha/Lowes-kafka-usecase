@@ -96,6 +96,9 @@ log.dirs=/data1
 
 - **node.id**: The node ID associated with the roles this process is playing when `process.roles` is non-empty. This is required configuration when running in KRaft mode.
 
+[Uploading server1.properties…]()
+
+
 ### 7. Generate UUID for Kafka Cluster ID
 
 Generate a unique Cluster ID:
