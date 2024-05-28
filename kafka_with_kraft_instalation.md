@@ -4,7 +4,7 @@ This guide provides step-by-step instructions to implement a Kafka cluster using
 
 ## Prerequisites
 
-- **Java Development Kit (JDK)**: Kafka requires Java 17
+- **Java Development Kit (JDK)**: Below mentioned Kafka release requires Java 17
 - **Apache Kafka**: Download the latest Kafka release from Apache Kafka(Currently Apache Kafka v 3.7.0)
   
 ## Steps to Implement Kafka with KRaft Mode
