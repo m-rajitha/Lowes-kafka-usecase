@@ -6,14 +6,14 @@ This guide provides step-by-step instructions to implement a Kafka cluster using
 The Raft protocol is a consensus algorithm designed to manage a replicated log in distributed systems.Raft uses a leader-based approach where a single leader is responsible for managing the replication and ensuring that all followers have the same log entries, providing a clear structure for maintaining consistency.
 
 ## Why Kafka uses RAFT with KRAFT ?
-- Moving to KRAFT simplies Kafka architecture by removing zookeeper out of system
+- Moving to KRAFT simplifies Kafka architecture by removing zookeeper out of system
 - Time to recover metadata during start is faster with KRAFT compared to Zookeeper
 - Scaling of partitions - Zookeeper is bottleneck in scaling partitons in metadata maintanence , where as KRAFT is desinged to handle large number of partitions
 
 
 ## Prerequisites
 
-- **Java Development Kit (JDK)**: Below mentioned Kafka release requires Java 17
+- **Java Development Kit (JDK)**: Below mentioned Kafka release requires Java 8 + (Recommended Java 17)
 - **Apache Kafka**: Download the latest Kafka release from Apache Kafka(Currently Apache Kafka v 3.7.0)
   
 ## Steps to Implement Kafka with KRaft Mode
