@@ -182,3 +182,5 @@ Consume messages from the Kafka topic to verify that the connector is working:
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic file-stream-topic --from-beginning
 ```
 
+## Conclusion
+Above docuement provides a  overview of setting up Kafka Connect in distributed mode, deploying a connector, and verifying its operation. 
