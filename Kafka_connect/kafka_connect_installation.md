@@ -160,8 +160,20 @@ curl -X GET http://localhost:8083/connectors/file-sink-connector/status
 
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/2efb84c4-f720-405e-b904-0982585b91ab)
 
+### 9. Push data to source file and checking message available in target file 
 
-### 9. Consuming Messages from Kafka Topic
+Before posting data , both files are empty
+
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/c42b004b-3a2b-432e-8fcb-a42cc473944f)
+
+Pushed few lines of data to source file
+
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/e3a2e820-5861-40bd-a48a-60564986b2b2)
+
+Checking the data in both files
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/e45bf0f9-2d93-4bb8-91bd-6ed5ddebc25c)
+
+### 10. Consuming Messages from Kafka Topic
 
 Consume messages from the Kafka topic to verify that the connector is working:
 
