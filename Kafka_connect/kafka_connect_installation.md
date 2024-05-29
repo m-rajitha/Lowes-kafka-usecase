@@ -84,9 +84,16 @@ systemctl status connect.service
 ```
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/6e34c20d-dd92-448d-82d0-c6d0156be508)
 
+### 6. Check the list of connect plugins in connect cluster
 
+Do a curl -XGET using the Kafka Connect REST API to get the list of connect plugins
 
-### 6. Deploying Connectors
+```bash
+curl -X GET http://localhost:8083/connector-plugins
+```
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/e6a574d7-84df-4800-ae9d-3d11d1f25a4f)
+
+### 7. Deploying Connectors
 
 #### FileStream Source Connector
 
@@ -135,18 +142,26 @@ curl -X POST -H "Content-Type: application/json" --data @filestream-sink.json ht
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/796713c4-51d7-4ce2-8dfb-0a92dd13b7a1)
 
 
-### 7. Verify Connector Deployment
+### 8. Verify Connector Deployment
 
-Check the status of the deployed connector:
+Check the status of the deployed file source connector:
 
 ```bash
-curl -X GET http://localhost:8083/connectors/filestream-source/status
+curl -X GET http://localhost:8083/connectors/file-source-connector/status
 ```
 
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/592b7697-310e-4645-b96f-0697a6adb859)
 
+Check the status of the deployed file sink connector:
 
-### 8. Consuming Messages from Kafka Topic
+```bash
+curl -X GET http://localhost:8083/connectors/file-sink-connector/status
+```
+
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/2efb84c4-f720-405e-b904-0982585b91ab)
+
+
+### 9. Consuming Messages from Kafka Topic
 
 Consume messages from the Kafka topic to verify that the connector is working:
 
