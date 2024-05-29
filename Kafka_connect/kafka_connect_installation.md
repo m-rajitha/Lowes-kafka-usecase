@@ -120,7 +120,7 @@ curl -X POST -H "Content-Type: application/json" --data @filestream-source.json 
 
 #### FileStream Sink Connector
 
-Create a configuration file for the FileStream Source Connector, `filestream-source.json`:
+Create a configuration file for the FileStream Sink Connector, `filestream-sink.json`:
 
 ```json
 { "name": "file-sink-connector",
