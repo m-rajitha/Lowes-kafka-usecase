@@ -93,14 +93,14 @@ systemctl status connect.service
 Create a configuration file for the FileStream Source Connector, `filestream-source.json`:
 
 ```json
-{
-  "name": "filestream-source",
-  "config": {
-    "connector.class": "org.apache.kafka.connect.file.FileStreamSourceConnector",
-    "tasks.max": "1",
-    "file": "/path/to/input/file.txt",
-    "topic": "file-stream-topic"
-  }
+{ "name": "file-source-connector",
+    "config":
+    {
+      "topic":"file-stream-topic",
+      "connector.class":"FileStreamSource",
+      "tasks.max": "1",
+      "file": "/home/raji/source.txt"
+     }
 }
 ```
 
@@ -110,6 +110,30 @@ Deploy the connector using the Kafka Connect REST API:
 curl -X POST -H "Content-Type: application/json" --data @filestream-source.json http://localhost:8083/connectors
 ```
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/75713fd5-8ddc-4b7b-9bab-6a0023e9bb05)
+
+#### FileStream Sink Connector
+
+Create a configuration file for the FileStream Source Connector, `filestream-source.json`:
+
+```json
+{ "name": "file-sink-connector",
+    "config":
+    {
+      "topics":"file-stream-topic",
+      "connector.class":"FileStreamSink",
+      "tasks.max": "1",
+      "file": "/home/raji/target.txt"
+     }
+}
+```
+
+Deploy the connector using the Kafka Connect REST API:
+
+```bash
+curl -X POST -H "Content-Type: application/json" --data @filestream-sink.json http://localhost:8083/connectors
+```
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/796713c4-51d7-4ce2-8dfb-0a92dd13b7a1)
+
 
 ### 7. Verify Connector Deployment
 
