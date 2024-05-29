@@ -5,7 +5,7 @@ This guide provides step-by-step instructions to install and configure Kafka Con
 ## Prerequisites
 
 - A running Kafka cluster
-- Java Development Kit (JDK) 8 or higher installed
+- Java Development Kit (JDK) 8 or higher installed (using JDK 17 - Recommended)
 - Kafka Connect binaries (part of the Kafka download package)
 
 Note: In our case , all the pre-requiste are satisfied
