@@ -171,6 +171,7 @@ Pushed few lines of data to source file
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/e3a2e820-5861-40bd-a48a-60564986b2b2)
 
 Checking the data in both files
+
 ![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/e45bf0f9-2d93-4bb8-91bd-6ed5ddebc25c)
 
 ### 10. Consuming Messages from Kafka Topic
