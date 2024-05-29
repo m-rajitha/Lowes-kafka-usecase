@@ -109,6 +109,7 @@ Deploy the connector using the Kafka Connect REST API:
 ```bash
 curl -X POST -H "Content-Type: application/json" --data @filestream-source.json http://localhost:8083/connectors
 ```
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/75713fd5-8ddc-4b7b-9bab-6a0023e9bb05)
 
 ### 7. Verify Connector Deployment
 
@@ -118,6 +119,9 @@ Check the status of the deployed connector:
 curl -X GET http://localhost:8083/connectors/filestream-source/status
 ```
 
+![image](https://github.com/m-rajitha/Lowes-kafka-usecase/assets/142714131/592b7697-310e-4645-b96f-0697a6adb859)
+
+
 ### 8. Consuming Messages from Kafka Topic
 
 Consume messages from the Kafka topic to verify that the connector is working:
@@ -125,3 +129,4 @@ Consume messages from the Kafka topic to verify that the connector is working:
 ```bash
 bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic file-stream-topic --from-beginning
 ```
+
