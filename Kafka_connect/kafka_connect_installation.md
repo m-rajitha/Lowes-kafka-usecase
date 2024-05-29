@@ -35,9 +35,9 @@ value.converter=org.apache.kafka.connect.json.JsonConverter
 config.storage.topic=connect-configs
 offset.storage.topic=connect-offsets
 status.storage.topic=connect-statuses
-config.storage.replication.factor=1
-offset.storage.replication.factor=1
-status.storage.replication.factor=1
+config.storage.replication.factor=3
+offset.storage.replication.factor=3
+status.storage.replication.factor=3
 ```
 
 ### 3. Create Systemctl Service Files
