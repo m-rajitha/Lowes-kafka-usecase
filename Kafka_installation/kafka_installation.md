@@ -196,4 +196,7 @@ systemctl status server1.service  # Repeat for server2.service and server3.servi
 
 ### 11. Verify the Setup
 
-To verify the setup, check the Kafka logs and ensure that the servers have started successfully in KRaft mode.
+To verify the setup, kafka logs have been validated and ensure that the servers have started successfully in KRaft mode.
+
+## Conclusion
+Above docuement provides a  overview of setting up Kafka with KRAFT mode, and verifying its operation. 
